@@ -1,0 +1,76 @@
+body {
+
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    background: #f424f2;
+    color: #000;
+    font-family: 'MuseoSansBold';
+}
+
+.content {
+    display: flex;
+    margin: 2vh auto;
+    background: #ff5500;
+    height: auto;
+    width: 85vw;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-top: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #000;
+    font-family: 'MuseoSansBold';
+}
+
+.header__section {
+    display: flex;
+    align-items: center;
+}
+
+.header__item {
+    padding: 10px 15px;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.header__logo {
+    font-size: 28px;
+}
+
+.header__logo:hover {
+    cursor: pointer;
+}
+
+.header__button {
+    cursor: pointer;
+}
