@@ -11,19 +11,18 @@
 
 <body>
     <div class="container">
-        <div class="header">
+        <header class="header">
             <div class="header__section">
                 <div class="header__item header__logo">
                     Сыктывкар
                 </div>
             </div>
             <div class="header__section">
-                <div class="header__item header__button"><a href="#">Подробнее о городе</a>
-                </div>
-                <div class="header__item header__button"><a href="#">Войти</a>
-                </div>
+                <div class="header__item header__button"><a href="attractions.php">Подробнее о городе</a></div>
+                <div class="header__item header__button"><a href="#">Войти</a></div>
             </div>
-        </div>
+
+        </header>
         <div class="content">
 
         </div>
