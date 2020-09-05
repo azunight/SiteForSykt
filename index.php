@@ -1,3 +1,6 @@
+<?php
+
+?>
 <html>
 
 <head>
@@ -19,7 +22,7 @@
             </div>
             <div class="header__section">
                 <div class="header__item header__button"><a href="attractions.php">Подробнее о городе</a></div>
-                <div class="header__item header__button"><a href="#">Войти</a></div>
+                <div class="header__item header__button"><a href="authorization.php">Войти</a></div>
             </div>
 
         </header>

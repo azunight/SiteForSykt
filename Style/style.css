@@ -20,7 +20,6 @@ a {
 @media (min-width: 1024px) {
     #top-link {
     	cursor: pointer;
-
     	display: none;
     	position: fixed;
         left: 0;
@@ -147,6 +146,58 @@ a {
         font-size: 12px;
         margin-top: 2vh;
     }
+}
+
+.form__auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid #DDD;
+    padding: 20px;
+    width: 30vw;
+    margin-top: 5vh;
+    min-width: 190px;
+}
+
+.authorization__text {
+    padding-bottom: 20px;
+    font-size: 24px;
+    color: #000;
+}
+
+.username__input {
+    border: 2px solid #DDD;
+    width: 25vw;
+    outline: none;
+    margin-bottom: 15px;
+    min-width: 170px;
+}
+
+.username__input:focus {
+    border: 2px solid #6da4eb;
+    width: 25vw;
+    outline: none;
+    margin-bottom: 15px;
+    min-width: 170px;
+}
+
+.username__input__button {
+    width: 15vw;
+    min-width: 170px;
+}
+
+.username__input__button:hover {
+    border: 2px solid #000;
+    background: #6da4eb;
+}
+
+.forgot__button {
+    text-align: center;
+    width: 25vw;
+    outline: none;
+    margin-bottom: 15px;
+    min-width: 170px;
 }
 
 /*

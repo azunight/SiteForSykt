@@ -1,84 +1,52 @@
 <?php
-
 session_start();
-// header("Location: /3.php");
-// require('connect.php');
-    
-if (isset($_POST['login'])){
 
-if (isset($_POST['username']) and isset($_POST['password'])){
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $connection = mysqli_connect('localhost', 'id9327971_admin',"admin" , 'id9327971_a');
-    $query = "SELECT * FROM `id9327971_a`.`users` WHERE username='$username' and password='$password'";
-    $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-    $count = mysqli_num_rows($result);
-    
-    if ($count == 1) {
-        $_SESSION['username'] = $username; 
-        header("Location: /star.php");
-        }
-    else {
-        echo "Error!";
-    }
-
-}
-
-if (isset($_SESSION['username'])) {
-
-    $username = $_SESSION['username'];
-    $password = $_SESSION['password'];
-    
-    echo "Здравствуйте " . $username . "";
-    echo ", Вы вошли!";
-    echo "
-        <form class=\"form-signin\" method=\"POST\">
-        <a href=\"star.php\" class=\"btn btn-lg btn-primary btn-block\">Эксклюзив</a>
-        <a href=\"logout.php\" class=\"btn btn-lg btn-primary btn-block\">Выйти</a></form>";
-    
-    }
+if ($_SESSION['username']) {
+    header('Location: profile.php');
 }
 ?>
-<!doctype html>
+<html>
 
-
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device=width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="style.css">-->
-    <title>Вход</title>
-    <style>
-  body { 
-      background: url(s1.jpg) no-repeat;
-      background-size: 100%;
-      }
-      .form-signin {
-    max-width: 400px;
-    padding: 15px;
-    margin: 0 auto;
-    text-align: center;
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сыктывкар</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="Style/reset.css">
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/fonts.css">
 </head>
+
 <body>
+    <div class="container">
+        <header class="header">
+            <div class="header__section">
+                <div class="header__item header__logo">
+                    Сыктывкар
+                </div>
+            </div>
+            <div class="header__section">
+                <div class="header__item header__button"><a href="attractions.php">Подробнее о городе</a></div>
+                <div class="header__item header__button"><a href="authorization.php">Войти</a></div>
+            </div>
+        </header>
 
+        <div class="content">
+            <form action="Action/auth.php" method="post" autocomplete="on" class="form__auth">
+                <p class="authorization__text">Авторизация</p>
+                <input type="text" class="username__input" placeholder="Логин" required name="username"/>
+                <input type="password" class="username__input" placeholder="Пароль" required name="password"/>
+                <a href="reset.php" class="forgot__button"><font>Забыли?</font></a>
+                <button type="submit" class="username__input username__input__button" name="login">Войти</button>
+                <input type="button" class="username__input username__input__button" onClick='location.href="registration.php"' value="Регистрация">
+            </form>
+        </div>
 
-
-
-
-<div class="container">
-    <form class="form-signin" method="POST">
-        <h2>Введите логин и пароль<br><br></h2>
-        <input type="text" name="username" class="form-control" placeholder="Имя пользователя" required><br>
-        <input type="password" name="password" class="form-control" placeholder="Пароль" required><br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" name='login'>Войти</button>
-        <a href="index.php" class="btn btn-lg btn-primary btn-block">Регистрация</a>
-    </form>
-</div>
-
+        <div class="footer">
+            <div class="footer__copyright">
+                © 2020, сайт-визитка города Сыктывкар
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
