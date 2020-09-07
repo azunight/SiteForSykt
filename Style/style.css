@@ -182,14 +182,29 @@ a {
     min-width: 170px;
 }
 
+.username__input:hover {
+    border: 2px solid #f424f2;
+    width: 25vw;
+    outline: none;
+    margin-bottom: 15px;
+    min-width: 170px;
+}
+
 .username__input__button {
     width: 15vw;
     min-width: 170px;
 }
 
 .username__input__button:hover {
-    border: 2px solid #000;
-    background: #6da4eb;
+    width: 15vw;
+    min-width: 170px;
+    border: 2px solid #000; /* 6da4eb */
+}
+
+.username__input__button:active {
+    width: 15vw;
+    min-width: 170px;
+    background-color: #f424f2;
 }
 
 .forgot__button {
@@ -200,6 +215,13 @@ a {
     min-width: 170px;
 }
 
+.forgot__button:hover {
+    color: #000;
+}
+
+.index:hover {
+    color: #000;
+}
 /*
 @media (max-width: 767px) {
     .container {

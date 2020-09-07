@@ -10,7 +10,7 @@ if ($_SESSION['username']) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сыктывкар</title>
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/Img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="Style/reset.css">
     <link rel="stylesheet" href="Style/style.css">
     <link rel="stylesheet" href="Style/fonts.css">
@@ -21,7 +21,7 @@ if ($_SESSION['username']) {
         <header class="header">
             <div class="header__section">
                 <div class="header__item header__logo">
-                    Сыктывкар
+                    <a class="index" href="index.php">Сыктывкар</a>
                 </div>
             </div>
             <div class="header__section">
@@ -35,7 +35,7 @@ if ($_SESSION['username']) {
                 <p class="authorization__text">Авторизация</p>
                 <input type="text" class="username__input" placeholder="Логин" required name="username"/>
                 <input type="password" class="username__input" placeholder="Пароль" required name="password"/>
-                <a href="reset.php" class="forgot__button"><font>Забыли?</font></a>
+                <a href="reset.php" class="forgot__button">Забыли?</a>
                 <button type="submit" class="username__input username__input__button" name="login">Войти</button>
                 <input type="button" class="username__input username__input__button" onClick='location.href="registration.php"' value="Регистрация">
             </form>

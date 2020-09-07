@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-		<meta charset="utf-8">
-	</head>
-<body>
-</body>
-</html>
 <?php
-$connection = mysqli_connect('localhost', 'id9327971_admin',"admin" , 'id9327971_a');
-
-//$select_db = mysqli_select_db($connection, 'nnn');
-
-?>
+$connection = mysqli_connect('localhost', 'root', '');
+$select_db = mysqli_select_db($connection, 'database');
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

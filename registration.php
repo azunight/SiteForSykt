@@ -1,57 +1,54 @@
 <?php
-require('connect.php');
+session_start();
 
-if (isset($_POST['username']) && isset($_POST['password'])){
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $query = "INSERT INTO `id9327971_a`.`users` (username, email, password) VALUES ('$username', '$email', '$password')";
-    $result = mysqli_query($connection,$query) or die("Ошибка: ".mysqli_error($connection));
-    echo "$result";
-
-    if($result){
-        $smsq = "Регистрация прошла успешно!";
-    }else {
-        $fsmsq = "Ошибка!";
-    }
+if ($_SESSION['username']) {
+    header('Location: user.php');
 }
 ?>
-<!doctype html>
-<html lang="en">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device=width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="style.css">-->
-    <title>Регистрация</title>
-    <style>
-  body { 
-      background: url(s1.jpg) no-repeat;
-      background-size: 100%;
-      }
-      .form-signin {
-    max-width: 400px;
-    padding: 15px;
-    margin: 0 auto;
-    text-align: center;
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сыктывкар</title>
+    <link rel="shortcut icon" href="/Img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="Style/reset.css">
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/fonts.css">
 </head>
+
 <body>
-<div class="container">
-        <form class="form-signin" method="POST">
-            <h2>Регистрация<br><br></h2>
-            <?php if(isset($smsq)){ ?><div class="alert alert-success" role="alert"> <?php echo $smsq; ?> </div> <?php } ?>
-            <?php if(isset($fsmsq)){ ?><div class="alert alert-danger" role="alert"> <?php echo $fsmsq; ?> </div> <?php } ?>
-            <input type="text" name="username" class="form-control" placeholder="Имя пользователя" required><br>
-            <input type="email" name="email" class="form-control" placeholder="Email" required><br>
-            <input type="password" name="password" class="form-control" placeholder="Пароль" required><br>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрироваться</button>
-            <a href="login.php" class="btn btn-lg btn-primary btn-block">Вход</a>
-        </form>
+    <div class="container">
+        <header class="header">
+            <div class="header__section">
+                <div class="header__item header__logo">
+                    <a class="index" href="index.php">Сыктывкар</a>
+                </div>
+            </div>
+            <div class="header__section">
+                <div class="header__item header__button"><a href="attractions.php">Подробнее о городе</a></div>
+                <div class="header__item header__button"><a href="authorization.php">Войти</a></div>
+            </div>
+        </header>
+
+        <div class="content">
+            <form action="Action/reg.php" method="post" autocomplete="on" class="form__auth">
+                <p class="authorization__text">Регистрация</p>
+                <input type="text" class="username__input" placeholder="Логин" required name="username__reg"/>
+                <input type="text" class="username__input" placeholder="Email" required name="email"/>
+                <input type="password" class="username__input" placeholder="Пароль" required name="password__reg"/>
+                <input type="password" class="username__input" placeholder="Подтвердите пароль" required name="password__reg__confirm"/>
+                <button type="submit" class="username__input username__input__button" name="signin">Зарегистрироваться</button>
+                <input type="button" class="username__input username__input__button" onClick='location.href="authorization.php"' value="Войти">
+            </form>
+        </div>
+
+        <div class="footer">
+            <div class="footer__copyright">
+                © 2020, сайт-визитка города Сыктывкар
+            </div>
+        </div>
     </div>
 </body>
+
 </html>

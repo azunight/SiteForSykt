@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сыктывкар</title>
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/Img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="Style/reset.css">
     <link rel="stylesheet" href="Style/style.css">
     <link rel="stylesheet" href="Style/fonts.css">
@@ -16,7 +16,7 @@
         <header class="header">
             <div class="header__section">
                 <div class="header__item header__logo">
-                    Сыктывкар
+                    <a class="index" href="index.php">Сыктывкар</a>
                 </div>
             </div>
             <div class="header__section">
