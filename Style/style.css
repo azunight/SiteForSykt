@@ -169,9 +169,11 @@ a {
 .username__input {
     border: 2px solid #DDD;
     width: 25vw;
+    height: 30px;
     outline: none;
     margin-bottom: 15px;
     min-width: 170px;
+    padding-left: 10px;
 }
 
 .username__input:focus {
@@ -193,6 +195,7 @@ a {
 .username__input__button {
     width: 15vw;
     min-width: 170px;
+    padding-left: 0;
 }
 
 .username__input__button:hover {
@@ -222,6 +225,55 @@ a {
 .index:hover {
     color: #000;
 }
+
+h1 {
+    font-size: 18px;
+    margin: 30px;
+}
+
+.index__hello {
+    font-size: 25px;
+    margin: 30px;
+}
+
+.yandex__map {
+    margin-top: 40px;
+    border: 2px solid #808080;
+    width: 50vw;
+    height: 60vh;
+}
+
+.index__content {
+    margin-top: 30px;
+    width: 60vw;
+    line-height: 28px;
+    word-spacing: 15px;
+    font-size: 20px;
+    border-left: 2.5px solid #000;
+    padding-left: 10px;
+}
+
+.error__message {
+    font-size: 14px;
+    padding-bottom: 20px;
+    color: red;
+}
+
+.all__message {
+    font-size: 14px;
+    padding-bottom: 20px;
+    color: green;
+}
+
+
+
+
+
+
+
+
+
+
 /*
 @media (max-width: 767px) {
     .container {

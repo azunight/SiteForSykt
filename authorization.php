@@ -14,6 +14,7 @@ if ($_SESSION['username']) {
     <link rel="stylesheet" href="Style/reset.css">
     <link rel="stylesheet" href="Style/style.css">
     <link rel="stylesheet" href="Style/fonts.css">
+    <link rel="stylesheet" href="Style/header__nav.css">
 </head>
 
 <body>
@@ -25,14 +26,46 @@ if ($_SESSION['username']) {
                 </div>
             </div>
             <div class="header__section">
-                <div class="header__item header__button"><a href="attractions.php">Подробнее о городе</a></div>
-                <div class="header__item header__button"><a href="authorization.php">Войти</a></div>
+                <nav role="navigation">
+                  <ul>
+                    <li><a href="about.php">Подробнее о городе</a>
+                      <ul class="dropdown" aria-label="submenu">
+                        <li><a href="attractions.php">Достопримечательности</a></li>
+                        <li><a href="stars.php">Известные личности</a></li>
+                        <li><a href="map.php">Карта</a></li>
+                        <li><a href="about.php">О городе</a></li>
+                      </ul>
+                    </li>
+                    <?php if ($_SESSION['username']) {
+                        echo '<li><a href="profile.php">Профиль</a>
+                                <ul class="dropdown" aria-label="submenu">
+                                    <li><a href="settings.php">Настройки</a></li>
+                                </ul>
+                                </li>';
+                        echo '<li><a href="logout.php">Выйти</a></li>';
+                    } else {
+                        echo '<li><a href="authorization.php">Войти</a></li>';
+                    } ?>
+                  </ul>
+                </nav>
             </div>
         </header>
 
         <div class="content">
             <form action="Action/auth.php" method="post" autocomplete="on" class="form__auth">
                 <p class="authorization__text">Авторизация</p>
+                <?php
+                if ($_SESSION['again'])
+                {
+                    echo '<p class="error__message">' . $_SESSION['again'] . '</p>';
+                }
+                if ($_SESSION['nice'])
+                {
+                    echo '<p class="all__message">' . $_SESSION['nice'] . '</p>';
+                }
+                unset($_SESSION['again']);
+                unset($_SESSION['nice']);
+                ?>
                 <input type="text" class="username__input" placeholder="Логин" required name="username"/>
                 <input type="password" class="username__input" placeholder="Пароль" required name="password"/>
                 <a href="reset.php" class="forgot__button">Забыли?</a>

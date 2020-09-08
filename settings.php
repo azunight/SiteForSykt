@@ -1,13 +1,22 @@
 <?php
+header('Content-Type: text/html; charset=utf8');
 session_start();
-$url = $_SERVER['REQUEST_URI'];
+if(isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}
+else {
+    session_destroy();
+    header("Location: authorization.php");
+}
+require_once('connection.php');
 ?>
-<html lang="ru" dir="ltr">
+
+<html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сыктывкар</title>
-    <link rel="shortcut icon" href="/Img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/Img/favicon.png" type="image/x-icon" sizes="any">
     <link rel="stylesheet" href="Style/reset.css">
     <link rel="stylesheet" href="Style/style.css">
     <link rel="stylesheet" href="Style/fonts.css">
@@ -25,12 +34,12 @@ $url = $_SERVER['REQUEST_URI'];
             <div class="header__section">
                 <nav role="navigation">
                   <ul>
-                    <li><a href="about.php" <?php if ($url === '/about.php') echo 'style="color: #fff;"';?>>Подробнее о городе</a>
+                    <li><a href="about.php">Подробнее о городе</a>
                       <ul class="dropdown" aria-label="submenu">
-                        <li><a href="attractions.php" <?php if ($url === '/attractions.php') echo 'style="color: #fff;"';?>>Достопримечательности</a></li>
-                        <li><a href="stars.php" <?php if ($url === '/stars.php') echo 'style="color: #fff;"';?>>Известные личности</a></li>
-                        <li><a href="map.php" <?php if ($url === '/map.php') echo 'style="color: #fff;"';?>>Карта</a></li>
-                        <li><a href="about.php" <?php if ($url === '/about.php') echo 'style="color: #fff;"';?>>О городе</a></li>
+                        <li><a href="attractions.php">Достопримечательности</a></li>
+                        <li><a href="stars.php">Известные личности</a></li>
+                        <li><a href="map.php">Карта</a></li>
+                        <li><a href="about.php">О городе</a></li>
                       </ul>
                     </li>
                     <?php if ($_SESSION['username']) {
@@ -49,7 +58,14 @@ $url = $_SERVER['REQUEST_URI'];
         </header>
 
         <div class="content">
-            <iframe class="yandex__map" src="https://yandex.ru/map-widget/v1/?um=constructor%3A77f3d4e05054876ceb806ecf7aac564d93cd90c11ce5823b9ba0f3ddebae966d&amp;source=constructor"></iframe>
+            <form action="Action/change.php" method="post" autocomplete="on" class="form__auth">
+                <p class="authorization__text">Смена пароля</p>
+                <?php if(isset($_SESSION['recordedSave'])){ ?><div class="all__message"> <?php echo $_SESSION['recordedSave']; ?> </div><?php unset($_SESSION['recordedSave']); } ?>
+                <input type="password" class="username__input" placeholder="Текущий пароль" required name="currentPassword"/>
+                <input type="password" class="username__input" placeholder="Новый пароль" required name="newPassword"/>
+                <input type="password" class="username__input" placeholder="Повторите новый пароль" required name="newPasswordConfirm"/>
+                <button type="submit" class="username__input username__input__button" name="reset">Сменить</button>
+            </form>
         </div>
 
         <div class="footer">
