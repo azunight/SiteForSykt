@@ -1,12 +1,7 @@
 <?php
 session_start();
-
-if ($_SESSION['username']) {
-    header('Location: profile.php');
-}
 ?>
-
-<html>
+<html lang="ru" dir="ltr">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,6 +36,8 @@ if ($_SESSION['username']) {
                         echo '<li><a href="profile.php">Профиль</a>
                                 <ul class="dropdown" aria-label="submenu">
                                     <li><a href="settings.php">Настройки</a></li>
+                                    <li><a href="feedback.php">Написать</a></li>
+                                    <li><a href="pay.php">Поддержка проекта</a></li>
                                 </ul>
                                 </li>';
                         echo '<li><a href="logout.php">Выйти</a></li>';
@@ -53,22 +50,7 @@ if ($_SESSION['username']) {
         </header>
 
         <div class="content">
-            <form action="Action/reg.php" method="post" autocomplete="on" class="form__auth">
-                <p class="authorization__text">Регистрация</p>
-                <?php
-                if ($_SESSION['message'])
-                {
-                    echo '<p class="error__message">' . $_SESSION['message'] . '</p>';
-                }
-                unset($_SESSION['message']);
-                ?>
-                <input type="text" class="username__input" placeholder="Логин" required name="username__reg"/>
-                <input type="email" class="username__input" placeholder="Email" required name="email"/>
-                <input type="password" class="username__input" placeholder="Пароль" required name="password__reg"/>
-                <input type="password" class="username__input" placeholder="Подтвердите пароль" required name="password__reg__confirm"/>
-                <button type="submit" class="username__input username__input__button" name="signin">Зарегистрироваться</button>
-                <input type="button" class="username__input username__input__button" onClick='location.href="authorization.php"' value="Войти">
-            </form>
+            <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%A1%D1%83%D0%BC%D0%BC%D0%B0%20%D0%BF%D0%BE%D0%B9%D0%B4%D0%B5%D1%82%20%D0%BD%D0%B0%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0!&targets-hint=&default-sum=100&button-text=12&payment-type-choice=on&comment=on&mail=on&hint=&successURL=&quickpay=shop&account=410011803246125" class="yandex__pay" scrolling="no"></iframe>
         </div>
 
         <div class="footer">

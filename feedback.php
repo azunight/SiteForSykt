@@ -1,9 +1,14 @@
 <?php
+header('Content-Type: text/html; charset=utf8');
 session_start();
-
-if ($_SESSION['username']) {
-    header('Location: profile.php');
+if(isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
 }
+else {
+session_destroy();
+header("Location: authorization.php");
+}
+require_once('connection.php');
 ?>
 
 <html>
@@ -18,7 +23,7 @@ if ($_SESSION['username']) {
     <link rel="stylesheet" href="Style/header__nav.css">
 </head>
 
-<body>
+<body onload="time();">
     <div class="container">
         <header class="header">
             <div class="header__section">
@@ -53,21 +58,22 @@ if ($_SESSION['username']) {
         </header>
 
         <div class="content">
-            <form action="Action/reg.php" method="post" autocomplete="on" class="form__auth">
-                <p class="authorization__text">Регистрация</p>
+            <form action="Action/feedback.php" method="post" autocomplete="on" class="form__auth">
+                <p class="authorization__text">Форма обратной связи</p>
                 <?php
-                if ($_SESSION['message'])
-                {
-                    echo '<p class="error__message">' . $_SESSION['message'] . '</p>';
+                if ($_SESSION['nice']) {
+                    echo '<p class="all__message">' . $_SESSION['nice'] . '</p>';
                 }
-                unset($_SESSION['message']);
+                if ($_SESSION['error']) {
+                    echo '<p class="error__message">' . $_SESSION['error'] . '</p>';
+                }
+                unset($_SESSION['nice']);
+                unset($_SESSION['error']);
                 ?>
-                <input type="text" class="username__input" placeholder="Логин" required name="username__reg"/>
-                <input type="email" class="username__input" placeholder="Email" required name="email"/>
-                <input type="password" class="username__input" placeholder="Пароль" required name="password__reg"/>
-                <input type="password" class="username__input" placeholder="Подтвердите пароль" required name="password__reg__confirm"/>
-                <button type="submit" class="username__input username__input__button" name="signin">Зарегистрироваться</button>
-                <input type="button" class="username__input username__input__button" onClick='location.href="authorization.php"' value="Войти">
+                <input type="text" class="username__input" placeholder="Тема обращения" required name="feedback__topic"/>
+                <textarea class="username__input feedback__textarea" placeholder="Текст обращения" required name="feedback__text"></textarea>
+                <input type="hidden" name="time" id="timeGet" value= "" />
+                <button type="submit" class="username__input username__input__button" name="feedback__send">Отправить</button>
             </form>
         </div>
 
@@ -77,6 +83,14 @@ if ($_SESSION['username']) {
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+    function time() {
+        let startdate = new Date().toISOString().slice(0, 10);
+        let starttime = new Date().toISOString().slice(11, 19);
+        var start = startdate + ' ' + starttime;
+        document.getElementById('timeGet').value = start;
+    }
+    </script>
 </body>
 
 </html>

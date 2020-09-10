@@ -60,7 +60,18 @@ require_once('connection.php');
         <div class="content">
             <form action="Action/change.php" method="post" autocomplete="on" class="form__auth">
                 <p class="authorization__text">Смена пароля</p>
-                <?php if(isset($_SESSION['recordedSave'])){ ?><div class="all__message"> <?php echo $_SESSION['recordedSave']; ?> </div><?php unset($_SESSION['recordedSave']); } ?>
+                <?php
+                if ($_SESSION['recordedSave'])
+                {
+                    echo '<p class="all__message">' . $_SESSION['recordedSave'] . '</p>';
+                }
+                if ($_SESSION['recordedError'])
+                {
+                    echo '<p class="error__message">' . $_SESSION['recordedError'] . '</p>';
+                }
+                unset($_SESSION['recordedSave']);
+                unset($_SESSION['recordedError']);
+                ?>
                 <input type="password" class="username__input" placeholder="Текущий пароль" required name="currentPassword"/>
                 <input type="password" class="username__input" placeholder="Новый пароль" required name="newPassword"/>
                 <input type="password" class="username__input" placeholder="Повторите новый пароль" required name="newPasswordConfirm"/>

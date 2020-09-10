@@ -1,12 +1,15 @@
 <?php
+header('Content-Type: text/html; charset=utf8');
 session_start();
-
-if ($_SESSION['username']) {
-    header('Location: profile.php');
+if($_SESSION['role'] == 'admin') {
+    $username = $_SESSION['username'];
 }
+else {
+header("Location: profile.php");
+}
+require_once('connection.php');
 ?>
-
-<html>
+<html lang="ru" dir="ltr">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,10 +40,22 @@ if ($_SESSION['username']) {
                         <li><a href="about.php">О городе</a></li>
                       </ul>
                     </li>
-                    <?php if ($_SESSION['username']) {
+                    <?php if ($_SESSION['role'] == 'admin') {
+                        echo '<li><a href="profile.php">Профиль</a>
+                                <ul class="dropdown" aria-label="submenu">
+                                    <li><a href="admin.php">admin</a></li>
+                                    <li><a href="settings.php">Настройки</a></li>
+                                    <li><a href="feedback.php">Написать</a></li>
+                                    <li><a href="pay.php">Поддержка проекта</a></li>
+                                </ul>
+                                </li>';
+                        echo '<li><a href="logout.php">Выйти</a></li>';
+                    } elseif ($_SESSION['username']) {
                         echo '<li><a href="profile.php">Профиль</a>
                                 <ul class="dropdown" aria-label="submenu">
                                     <li><a href="settings.php">Настройки</a></li>
+                                    <li><a href="feedback.php">Написать</a></li>
+                                    <li><a href="pay.php">Поддержка проекта</a></li>
                                 </ul>
                                 </li>';
                         echo '<li><a href="logout.php">Выйти</a></li>';
@@ -53,22 +68,22 @@ if ($_SESSION['username']) {
         </header>
 
         <div class="content">
-            <form action="Action/reg.php" method="post" autocomplete="on" class="form__auth">
-                <p class="authorization__text">Регистрация</p>
+            <form action="Action/topics.php" method="post">
                 <?php
-                if ($_SESSION['message'])
-                {
-                    echo '<p class="error__message">' . $_SESSION['message'] . '</p>';
-                }
-                unset($_SESSION['message']);
+                    $stmt = $connection->prepare("SELECT `text`, `topic`, `user`, `email` FROM `feedback` ORDER BY `time`");
+                    $stmt->execute();
+                    $emailResult = $stmt->get_result();
+                    $stmt->close();
+
+                    $h = 0;
+                    while ($emailUser = mysqli_fetch_array($emailResult)) {
+                        echo '<div id="emailUser' . $h . '" name="emailUser' . $h . '">
+                        <p class="topics__admin">' . $emailUser['1'] . ' от ' . $emailUser['3'] . ' (' . $emailUser['2'] . '): ' . $emailUser['0'] . '</p><button type="submit" name="' . $h . '" id="' . $h . '">Ответить</button></div>';
+                        ++$h;
+                    }
                 ?>
-                <input type="text" class="username__input" placeholder="Логин" required name="username__reg"/>
-                <input type="email" class="username__input" placeholder="Email" required name="email"/>
-                <input type="password" class="username__input" placeholder="Пароль" required name="password__reg"/>
-                <input type="password" class="username__input" placeholder="Подтвердите пароль" required name="password__reg__confirm"/>
-                <button type="submit" class="username__input username__input__button" name="signin">Зарегистрироваться</button>
-                <input type="button" class="username__input username__input__button" onClick='location.href="authorization.php"' value="Войти">
             </form>
+
         </div>
 
         <div class="footer">

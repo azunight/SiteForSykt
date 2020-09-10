@@ -36,6 +36,8 @@ session_start();
                         echo '<li><a href="profile.php">Профиль</a>
                                 <ul class="dropdown" aria-label="submenu">
                                     <li><a href="settings.php">Настройки</a></li>
+                                    <li><a href="feedback.php">Написать</a></li>
+                                    <li><a href="pay.php">Поддержка проекта</a></li>
                                 </ul>
                                 </li>';
                         echo '<li><a href="logout.php">Выйти</a></li>';

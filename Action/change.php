@@ -33,11 +33,11 @@ header('Content-Type: text/html; charset=utf8');
                 $_SESSION['recordedSave'] = "Пароль успешно обновлен!";
                 header('Location: ../settings.php');
             } else {
-                $_SESSION['recordedSave'] = "Ошибка!";
+                $_SESSION['recordedError'] = "Ошибка!";
                 header('Location: ../settings.php');
             }
             $stmt->close();
         } else {
-            $_SESSION['recordedSave'] = 'Пароли не совпадают!';
+            $_SESSION['recordedError'] = 'Пароли не совпадают!';
             header('Location: ../settings.php');
         }
