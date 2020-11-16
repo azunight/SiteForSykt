@@ -14,7 +14,7 @@
 </head>
 
 <body>
-        <header class="header">
+     <header class="header">
             <div class="header__section-left">
                 <div class="header__item header__logo">
                     <a href="index.html">Сыктывкар</a>
@@ -38,11 +38,14 @@
         </header>
 
         <main class="main">
-            <div class="wrapper">
-                <h2>
-                    Привет, друг!
-                </h2>
-            </div>
+            <form action="Action/auth.php" method="post" autocomplete="on" class="main__form">
+                <h2 class="main__form-title">Авторизация</h2>
+                <input type="text" class="main__form-input" placeholder="Логин" required name="username"/>
+                <input type="password" class="main__form-input" placeholder="Пароль" required name="password"/>
+                <a href="reset.php" class="main__form-forgot">Забыли?</a>
+                <button type="submit" class="main__form-input main__form-button" name="login">Войти</button>
+                <input type="button" class="main__form-input main__form-button" onClick='location.href="registration.php"' value="Регистрация">
+            </form>
         </main>
 
         <footer class="footer">

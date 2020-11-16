@@ -1,99 +1,95 @@
+html {
+  height: 100%;
+}
+
 body {
   font-family: "MuseoSansBold";
   color: #000;
-}
-
-a {
-  color: #000;
-  text-decoration: none;
+  min-height: 100%;
 }
 
 .wrapper {
-  width: 1024px;
+  width: 70vw;
   margin: 0 auto;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  z-index: 2;
-  width: 100%;
-  height: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: 0 auto;
-  background: #f424f2;
-  color: #000;
-  font-family: "MuseoSansBold";
-}
-
-.header__section {
-  display: flex;
+  text-align: center;
   align-items: center;
+  width: auto;
+  height: auto;
+  background: #f424f2;
+  padding: 10px;
+  margin: 0 auto;
 }
-
-.header__item {
+.header .header__section-left, .header .header__section-right {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  text-align: left;
+}
+.header .header__section-right a {
+  text-decoration: none;
+  transition: none;
+}
+.header .header__section-right a:hover {
+  color: #fff;
+}
+.header .header__section-right a:active {
+  color: #fff;
+}
+.header .header__section-right a:focus {
+  color: #fff;
+}
+.header .header__item {
   padding: 10px 15px;
-  font-size: 18px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px;
 }
-
-.header__logo {
-  font-size: 28px;
+.header .header__item a {
+  color: #000;
 }
-
-.header__logo:hover {
+.header .header__logo {
+  font-size: 1.8em;
+}
+.header .header__logo:hover {
   cursor: pointer;
 }
 
-/* CONTENT*/
 .main {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   align-items: center;
-  flex-direction: column;
 }
-
-.index__hello {
-  font-size: 25px;
+.main h2 {
+  font-size: 1.6em;
   margin: 30px;
 }
 
-/* END */
-/* FOOTER */
-.footer {
+.main__form {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  margin-top: auto;
-  padding-top: 100px;
-  padding-bottom: 30px;
-  color: #000;
-  font-family: "MuseoSansBold";
-}
-
-/* END */
-.form__auth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
   border: 2px solid #DDD;
   padding: 20px;
   width: 30vw;
-  margin-top: 5vh;
+  margin: 5vh 2vh 2vh;
   min-width: 300px;
 }
 
-.authorization__text {
+.main__form-title {
   padding-bottom: 20px;
   font-size: 24px;
   color: #000;
 }
 
-.username__input {
+.main__form-input {
   border: 2px solid #DDD;
   width: 25vw;
   height: 30px;
@@ -102,8 +98,14 @@ a {
   min-width: 170px;
   padding-left: 10px;
 }
-
-.username__input:focus {
+.main__form-input:hover {
+  border: 2px solid #f424f2;
+  width: 25vw;
+  outline: none;
+  margin-bottom: 15px;
+  min-width: 170px;
+}
+.main__form-input:focus {
   border: 2px solid #6da4eb;
   width: 25vw;
   outline: none;
@@ -111,43 +113,48 @@ a {
   min-width: 170px;
 }
 
-.username__input:hover {
-  border: 2px solid #f424f2;
-  width: 25vw;
-  outline: none;
-  margin-bottom: 15px;
-  min-width: 170px;
-}
-
-.username__input__button {
+.main__form-button {
   width: 15vw;
   min-width: 170px;
   padding-left: 0;
 }
-
-.username__input__button:hover {
+.main__form-button:hover {
   width: 15vw;
   min-width: 170px;
   border: 2px solid #000;
-  /* 6da4eb */
 }
-
-.username__input__button:active {
+.main__form-button:active {
   width: 15vw;
   min-width: 170px;
   background-color: #f424f2;
 }
-
-.forgot__button {
+.main__form-forgot {
   text-align: center;
   width: 25vw;
   outline: none;
   margin-bottom: 15px;
   min-width: 170px;
 }
-
-.forgot__button:hover {
+.main__form-forgot:hover {
   color: #000;
+}
+.main__form-forgot:active {
+  color: #000;
+}
+.main__form-forgot:focus {
+  color: #000;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding: 100px 5px 30px;
 }
 
 .index:hover {
@@ -206,173 +213,3 @@ h1 {
   margin: 20px;
   border: 2px solid #DDD;
 }
-
-@media (min-width: 768px) {
-  .content {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 auto;
-    height: auto;
-    width: 85vw;
-    color: #000;
-    font-family: "MuseoSansBold";
-  }
-
-  .footer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: auto;
-    margin-top: auto;
-    padding-top: 100px;
-    padding-bottom: 30px;
-    color: #000;
-    font-family: "MuseoSansBold";
-  }
-
-  a:hover {
-    color: #fff;
-  }
-
-  .header__button {
-    cursor: pointer;
-  }
-
-  img {
-    width: auto;
-    overflow: hidden;
-    height: 30vh;
-    padding: 5vh;
-  }
-
-  .photo {
-    display: flex;
-    font-size: 16px;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    width: 50vw;
-    max-width: 800px;
-    padding-top: 2vh;
-    color: #000;
-    text-align: center;
-  }
-
-  .little {
-    color: #808080;
-    font-size: 12px;
-    margin-top: 2vh;
-  }
-
-  .address {
-    color: #DAA520;
-    font-size: 12px;
-    margin-top: 2vh;
-  }
-}
-@media (max-width: 1023px) {
-  #top-link {
-    display: none;
-  }
-
-  #top-link a {
-    display: none;
-  }
-}
-@media (min-width: 1024px) {
-  #top-link {
-    cursor: pointer;
-    display: none;
-    position: fixed;
-    left: 0;
-    z-index: 1;
-    top: 0;
-    padding: 0;
-    background: #EFD9ED;
-  }
-
-  #top-link:hover {
-    background: #EF9DED;
-  }
-
-  #top-link a {
-    display: block;
-    margin-top: 5vh;
-    margin-left: 1vw;
-    color: #808080;
-  }
-}
-/*
-@media (max-width: 767px) {
-    .container {
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-
-    .header {
-        display: block;
-        justify-content: space-between;
-        width: 100%;
-        height: auto;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin: 0 auto;
-        background: #f424f2;
-        color: #000;
-        font-family: 'MuseoSansBold';
-    }
-
-    .content {
-        display: flex;
-        margin: 2vh auto;
-        background: #ff5500;
-        height: auto;
-        width: 85vw;
-    }
-
-    .footer {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: auto;
-        margin-top: auto;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        color: #000;
-        font-family: 'MuseoSansBold';
-    }
-
-    .header__section {
-        display: flex;
-        align-items: center;
-    }
-
-    .header__item {
-        padding: 10px 15px;
-        font-size: 18px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    a:hover {
-        color: #fff;
-    }
-
-    .header__logo {
-        font-size: 28px;
-    }
-
-    .header__logo:hover {
-        cursor: pointer;
-    }
-
-    .header__button {
-        cursor: pointer;
-    }
-}
-*/
