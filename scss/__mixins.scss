@@ -69,3 +69,9 @@
   align-items: flex-start;
   @content
 }
+
+@mixin att($color, $fz, $mt) {
+  color: $color;
+  font-size: $fz;
+  margin-top: $mt;
+}

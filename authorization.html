@@ -15,44 +15,49 @@
 
 <body>
      <header class="header">
-            <div class="header__section-left">
-                <div class="header__item header__logo">
-                    <a href="index.html">Сыктывкар</a>
-                </div>
+        <div class="header__section-left">
+            <div class="header__item header__logo">
+                <a href="index.html">Сыктывкар</a>
             </div>
-            <div class="header__section-right">
-                <nav role="navigation">
-                  <ul>
+        </div>
+        <div class="header__section-right">
+            <nav role="navigation">
+                <ul>
                     <li><a href="about.html">Подробнее о городе</a>
-                      <ul class="dropdown" aria-label="submenu">
-                        <li><a href="attractions.html">Достопримечательности</a></li>
-                        <li><a href="stars.html">Известные личности</a></li>
-                        <li><a href="map.html">Карта</a></li>
-                        <li><a href="about.html">О городе</a></li>
-                      </ul>
+                        <ul class="dropdown" aria-label="submenu">
+                            <li><a href="attractions.html">Достопримечательности</a></li>
+                            <li><a href="stars.html">Известные личности</a></li>
+                            <li><a href="map.html">Карта</a></li>
+                            <li><a href="about.html">О городе</a></li>
+                        </ul>
                     </li>
                     <li><a href="authorization.html">Войти</a></li>
-                  </ul>
-                </nav>
-            </div>
-        </header>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <main class="main">
-            <form action="Action/auth.php" method="post" autocomplete="on" class="main__form">
-                <h2 class="main__form-title">Авторизация</h2>
-                <input type="text" class="main__form-input" placeholder="Логин" required name="username"/>
-                <input type="password" class="main__form-input" placeholder="Пароль" required name="password"/>
-                <a href="reset.php" class="main__form-forgot">Забыли?</a>
-                <button type="submit" class="main__form-input main__form-button" name="login">Войти</button>
-                <input type="button" class="main__form-input main__form-button" onClick='location.href="registration.php"' value="Регистрация">
-            </form>
-        </main>
-
-        <footer class="footer">
-            <div class="footer__copyright">
-                <span>© 2020, сайт-визитка города Сыктывкар</span> 
+    <main class="main">
+        <div class="wrapper">
+            <div class="main__wrapper">
+                <form action="Action/auth.php" method="post" autocomplete="on" class="main__form">
+                    <h2 class="main__form-title">Авторизация</h2>
+                    <input type="text" class="main__form-input" placeholder="Логин" required name="username"/>
+                    <input type="password" class="main__form-input" placeholder="Пароль" required name="password"/>
+                    <a href="reset.html" class="main__form-forgot">Забыли?</a>
+                    <button type="submit" class="main__form-button" name="login">Войти</button>
+                    <input type="button" class="main__form-button" onClick='location.href="registration.html"' value="Регистрация">
+                </form>
             </div>
-        </footer>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__copyright">
+            <span>© 2020, сайт-визитка города Сыктывкар</span> 
+        </div>
+    </footer>
+
 </body>
 
 </html>

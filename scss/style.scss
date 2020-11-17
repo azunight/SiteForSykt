@@ -7,6 +7,11 @@ html {
     height: 100%;
 }
 
+h1 {
+    font-size: 1.6em;
+    margin: 30px;
+}
+
 body {
     font-family: 'MuseoSansBold';
     color: $black;
@@ -23,8 +28,8 @@ body {
 .header {
     @include flex;
     @include wh;
-    @include bg($bg);
-    //z-index: 2;
+    @include bg($selectedColor);
+    z-index: 999;
     padding: 10px;
     margin: 0 auto;
 
@@ -59,9 +64,11 @@ body {
 
 .main {
     @include flexColumn;
-    h2 {
-        font-size: 1.6em;
-        margin: 30px;
+    @include wh;
+    .main__wrapper {
+       @include flex {
+        justify-content: center;
+       }
     }
 }
 
@@ -71,9 +78,9 @@ body {
 
 .main__form {
     @include flexColumn;
+    @include wh(30vw);
     border: 2px solid #DDD;
     padding: 20px;
-    width: 30vw;
     margin: 5vh 2vh 2vh;
     min-width: 300px;
 }
@@ -85,70 +92,130 @@ body {
 }
 
 .main__form-input {
-    border: 2px solid #DDD;
-    width: 25vw;
-    height: 30px;
+    @include wh(25vw, 30px);
+    border: 2px solid $gray;
     outline: none;
     margin-bottom: 15px;
     min-width: 170px;
     padding-left: 10px;
     &:hover {
-        border: 2px solid #f424f2;
-    width: 25vw;
-    outline: none;
-    margin-bottom: 15px;
-    min-width: 170px;
-     }
-     &:active {
-
-     }
-     &:focus {
-        border: 2px solid #6da4eb;
-        width: 25vw;
-             outline: none;
-        margin-bottom: 15px;
-         min-width: 170px;
-     }
+        border: 2px solid $selectedColor;
+    }
+    &:focus {
+        border: 2px solid $blue;
+    }
 }
 
 .main__form-button {
-    width: 15vw;
+    @include wh(15vw, 30px);
+    font-family: 'MuseoSansBold';
+    border: 2px solid $gray;
+    outline: none;
+    margin-bottom: 15px;
     min-width: 170px;
-    padding-left: 0;
     &:hover {
-width: 15vw;
-    min-width: 170px;
-    border: 2px solid #000; 
+        border: 2px solid $black; 
     }
     &:active {
-        width: 15vw;
-    min-width: 170px;
-    background-color: #f424f2;
+        color: $blue;
     }
     &:focus {
-
+        border: 2px solid $blue; 
     }
 }
 
 .main__form-forgot {
-    text-align: center;
-    width: 25vw;
-    outline: none;
     margin-bottom: 15px;
-    min-width: 170px;
-    &:hover {
-        color: #000;
-    }
-     &:active {
-        color: #000;
-    }
-     &:focus {
-        color: #000;
+    color: $black;
+    &:hover, &:active, &:focus {
+        color: $blue;
     }
 }
 
-
 //Form auth styles end
+
+//Attractions styles start
+
+.main__wrapper-items {
+    padding-top: 3vh;
+   .main__wrapper-item {
+        @include flexColumn;
+        @include wh(70vw);
+        margin: auto;
+        max-width: 800px;
+        padding-top: 2vh;
+        &:not(:first-child) {
+            margin-top: 6vh;
+        }
+        img {
+            @include wh(60vw);
+        }
+        h3 {
+            @include att($black, 1.4em, 3vh);
+        }
+        p {
+            @include att($darkGray, 1em, 2vh);
+        }
+        span {
+            @include att(#DAA520, 1em, 2vh);
+        } 
+    } 
+}
+
+//Attractions styles end
+
+//Yandex map styles start
+
+iframe {
+    @include wh(75vw, 75vh);
+    border: 2px solid #808080;
+    margin: 35px 5px 0px; 
+}
+
+//Yandex map styles end
+
+//About styles start
+
+.main__wrapper-about {
+    margin: 35px 5px 0px;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    word-spacing: 0.1em; 
+    border-left: 2.5px solid #000;
+    padding-left: 15px;
+    text-align: left;
+    span {
+        color: $darkBlue;
+    }
+}
+
+//About styles end
+
+//Top link styles start
+
+#top-link {
+    @include tl(0, 0);
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 0;
+    background: #EFD9ED;
+    a {
+        display: block;
+        margin-top: 5vh;
+        margin-left: 1vw;
+        color: #808080; 
+    }
+    &:hover, &:focus {
+        background: #EF9DED;
+    }
+    &:active {
+        background: #e394e1;
+    }
+}
+
+//Top link styles end
 
 //Footer styles start
 
@@ -159,9 +226,15 @@ width: 15vw;
     @include wh;
     margin: auto;
     padding: 100px 5px 30px;
+    span {
+        padding: 7px 20px;
+        background-color: $gray;
+        border-radius: 100px;
+    }
 }
 
-//Footer styles start
+//Footer styles end
+
 
 
 .index:hover {
@@ -169,27 +242,8 @@ width: 15vw;
 }
 
 
-h1 {
-    font-size: 18px;
-    margin: 30px;
-}
 
-.yandex__map {
-    margin-top: 40px;
-    border: 2px solid #808080;
-    width: 50vw;
-    height: 60vh;
-}
 
-.index__content {
-    margin-top: 30px;
-    width: 60vw;
-    line-height: 28px;
-    word-spacing: 15px;
-    font-size: 20px;
-    border-left: 2.5px solid #000;
-    padding-left: 10px;
-}
 
 .error__message {
     font-size: 14px;

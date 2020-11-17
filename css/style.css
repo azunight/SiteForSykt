@@ -2,6 +2,11 @@ html {
   height: 100%;
 }
 
+h1 {
+  font-size: 1.6em;
+  margin: 30px;
+}
+
 body {
   font-family: "MuseoSansBold";
   color: #000;
@@ -21,6 +26,7 @@ body {
   width: auto;
   height: auto;
   background: #f424f2;
+  z-index: 999;
   padding: 10px;
   margin: 0 auto;
 }
@@ -64,10 +70,15 @@ body {
   justify-content: space-between;
   text-align: center;
   align-items: center;
+  width: auto;
+  height: auto;
 }
-.main h2 {
-  font-size: 1.6em;
-  margin: 30px;
+.main .main__wrapper {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .main__form {
@@ -76,9 +87,10 @@ body {
   justify-content: space-between;
   text-align: center;
   align-items: center;
+  width: 30vw;
+  height: auto;
   border: 2px solid #DDD;
   padding: 20px;
-  width: 30vw;
   margin: 5vh 2vh 2vh;
   min-width: 300px;
 }
@@ -90,9 +102,9 @@ body {
 }
 
 .main__form-input {
-  border: 2px solid #DDD;
   width: 25vw;
   height: 30px;
+  border: 2px solid #DDD;
   outline: none;
   margin-bottom: 15px;
   min-width: 170px;
@@ -100,49 +112,117 @@ body {
 }
 .main__form-input:hover {
   border: 2px solid #f424f2;
-  width: 25vw;
-  outline: none;
-  margin-bottom: 15px;
-  min-width: 170px;
 }
 .main__form-input:focus {
   border: 2px solid #6da4eb;
-  width: 25vw;
-  outline: none;
-  margin-bottom: 15px;
-  min-width: 170px;
 }
 
 .main__form-button {
   width: 15vw;
-  min-width: 170px;
-  padding-left: 0;
-}
-.main__form-button:hover {
-  width: 15vw;
-  min-width: 170px;
-  border: 2px solid #000;
-}
-.main__form-button:active {
-  width: 15vw;
-  min-width: 170px;
-  background-color: #f424f2;
-}
-.main__form-forgot {
-  text-align: center;
-  width: 25vw;
+  height: 30px;
+  font-family: "MuseoSansBold";
+  border: 2px solid #DDD;
   outline: none;
   margin-bottom: 15px;
   min-width: 170px;
 }
-.main__form-forgot:hover {
+.main__form-button:hover {
+  border: 2px solid #000;
+}
+.main__form-button:active {
+  color: #6da4eb;
+}
+.main__form-button:focus {
+  border: 2px solid #6da4eb;
+}
+
+.main__form-forgot {
+  margin-bottom: 15px;
   color: #000;
 }
-.main__form-forgot:active {
-  color: #000;
+.main__form-forgot:hover, .main__form-forgot:active, .main__form-forgot:focus {
+  color: #6da4eb;
 }
-.main__form-forgot:focus {
+
+.main__wrapper-items {
+  padding-top: 3vh;
+}
+.main__wrapper-items .main__wrapper-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  width: 70vw;
+  height: auto;
+  margin: auto;
+  max-width: 800px;
+  padding-top: 2vh;
+}
+.main__wrapper-items .main__wrapper-item:not(:first-child) {
+  margin-top: 6vh;
+}
+.main__wrapper-items .main__wrapper-item img {
+  width: 60vw;
+  height: auto;
+}
+.main__wrapper-items .main__wrapper-item h3 {
   color: #000;
+  font-size: 1.4em;
+  margin-top: 3vh;
+}
+.main__wrapper-items .main__wrapper-item p {
+  color: #808080;
+  font-size: 1em;
+  margin-top: 2vh;
+}
+.main__wrapper-items .main__wrapper-item span {
+  color: #DAA520;
+  font-size: 1em;
+  margin-top: 2vh;
+}
+
+iframe {
+  width: 75vw;
+  height: 75vh;
+  border: 2px solid #808080;
+  margin: 35px 5px 0px;
+}
+
+.main__wrapper-about {
+  margin: 35px 5px 0px;
+  font-size: 1.3em;
+  line-height: 1.5em;
+  word-spacing: 0.1em;
+  border-left: 2.5px solid #000;
+  padding-left: 15px;
+  text-align: left;
+}
+.main__wrapper-about span {
+  color: #4094ff;
+}
+
+#top-link {
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 0;
+  background: #EFD9ED;
+}
+#top-link a {
+  display: block;
+  margin-top: 5vh;
+  margin-left: 1vw;
+  color: #808080;
+}
+#top-link:hover, #top-link:focus {
+  background: #EF9DED;
+}
+#top-link:active {
+  background: #e394e1;
 }
 
 .footer {
@@ -156,31 +236,14 @@ body {
   margin: auto;
   padding: 100px 5px 30px;
 }
+.footer span {
+  padding: 7px 20px;
+  background-color: #DDD;
+  border-radius: 100px;
+}
 
 .index:hover {
   color: #000;
-}
-
-h1 {
-  font-size: 18px;
-  margin: 30px;
-}
-
-.yandex__map {
-  margin-top: 40px;
-  border: 2px solid #808080;
-  width: 50vw;
-  height: 60vh;
-}
-
-.index__content {
-  margin-top: 30px;
-  width: 60vw;
-  line-height: 28px;
-  word-spacing: 15px;
-  font-size: 20px;
-  border-left: 2.5px solid #000;
-  padding-left: 10px;
 }
 
 .error__message {

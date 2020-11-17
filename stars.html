@@ -1,106 +1,92 @@
-<?php
-session_start();
-?>
+<!DOCTYPE html>
 
-<html>
+<html lang="ru" dir="ltr">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сыктывкар</title>
     <link rel="shortcut icon" href="/Img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="Style/reset.css">
-    <link rel="stylesheet" href="Style/style.css">
-    <link rel="stylesheet" href="Style/fonts.css">
-    <link rel="stylesheet" href="Style/header__nav.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/header__nav.css">
+    <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="Js/button.js"></script>
-    <div class="container">
-        <header class="header">
-            <div class="header__section">
-                <div class="header__item header__logo">
-                    <a class="index" href="index.php">Сыктывкар</a>
-                </div>
+    <header class="header">
+        <div class="header__section-left">
+            <div class="header__item header__logo">
+                <a href="index.html">Сыктывкар</a>
             </div>
-            <div class="header__section">
-                <nav role="navigation">
-                  <ul>
-                    <li><a href="about.php">Подробнее о городе</a>
-                      <ul class="dropdown" aria-label="submenu">
-                        <li><a href="attractions.php">Достопримечательности</a></li>
-                        <li><a href="stars.php">Известные личности</a></li>
-                        <li><a href="map.php">Карта</a></li>
-                        <li><a href="about.php">О городе</a></li>
+        </div>
+        <div class="header__section-right">
+            <nav role="navigation">
+                <ul>
+                    <li><a href="about.html">Подробнее о городе</a>
+                        <ul class="dropdown" aria-label="submenu">
+                            <li><a href="attractions.html">Достопримечательности</a></li>
+                            <li><a href="stars.html">Известные личности</a></li>
+                            <li><a href="map.html">Карта</a></li>
+                            <li><a href="about.html">О городе</a></li>
                       </ul>
                     </li>
-                    <?php if ($_SESSION['username']) {
-                        echo '<li><a href="profile.php">Профиль</a>
-                                <ul class="dropdown" aria-label="submenu">
-                                    <li><a href="settings.php">Настройки</a></li>
-                                </ul>
-                                </li>';
-                        echo '<li><a href="logout.php">Выйти</a></li>';
-                    } else {
-                        echo '<li><a href="authorization.php">Войти</a></li>';
-                    } ?>
-                  </ul>
-                </nav>
-            </div>
-        </header>
+                    <li><a href="authorization.html">Войти</a></li>
+                </ul>
+            </nav>
+         </div>
+    </header>
 
-        <div class="content">
-            <div id="top-link">
-                <a href="#top"></a>
-            </div>
-            <div class="photo">
-                <img src="../Img/roman.JPG" />
-                <p>Роман Аркадьевич Абрамович</p>
-                <p class="little">
-                    Российский предприниматель, жил в городе с 1967 по 1971 год.
-                </p>
-                <p class="address">
-                    Состояние на 2020 год - 11 300 000 000$
-                </p>
-            </div>
-            <div class="photo">
-                <img src="../Img/rektor.JPG" />
-                <p>Валентина Александровна Витязева</p>
-                <p class="little">
-                    Первый ректор Сыктывкарского государственного университета, первая женщина-ректор университета в СССР.
-                </p>
-                <p class="address">
-                    Годы жизни - 07.04.1919 по 22.05.2010
-                </p>
-            </div>
-            <div class="photo">
-                <img src="../Img/raisa.JPG" />
-                <p>Раиса Петровна Сметанина</p>
-                <p class="little">
-                    Четырёхкратная олимпийская чемпионка в соревнованиях по лыжным гонкам, призёр и победитель всевозможных ЧМ и ЧЕ по лыжным гонкам.
-                </p>
-                <p class="address">
-                    Конец карьеры - 1992 год
-                </p>
-            </div>
-            <div class="photo">
-                <img src="../Img/15.JPG" />
-                <p>Габов Николай Николаевич</p>
-                <p class="little">
-                    Участник Великой Отечественной войны, разведчик штабной батареи 1-го гвардейского артиллерийского полка 4-й гвардейской воздушно-десантной дивизии 40-й армии 2-го Украинского фронта, гвардии рядовой.
-                </p>
-                <p class="address">
-                    Награды: Герой Советского Союза, Орден Ленина, Орден Красной Звезды
-                </p>
+    <main class="main">
+        <div id="top-link">
+            <a href="#top"></a>
+        </div>
+        <div class="wrapper">
+            <div class="main__wrapper-items">
+                <div class="main__wrapper-item">
+                    <img src="../Img/roman.JPG" />
+                    <h3>Роман Аркадьевич Абрамович</h3>
+                    <p>
+                        Российский предприниматель, жил в городе с 1967 по 1971 год.
+                    </p>
+                    <span>Состояние на 2020 год - 11 300 000 000$</span>
+                </div>
+                <div class="main__wrapper-item">
+                    <img src="../Img/rektor.JPG" />
+                    <h3>Валентина Александровна Витязева</h3>
+                    <p>
+                        Первый ректор Сыктывкарского государственного университета, первая женщина-ректор университета в СССР.
+                    </p>
+                    <span>Годы жизни - 07.04.1919 по 22.05.2010</span>
+                </div>
+                <div class="main__wrapper-item">
+                    <img src="../Img/raisa.JPG" />
+                    <h3>Раиса Петровна Сметанина</h3>
+                    <p>
+                        Четырёхкратная олимпийская чемпионка в соревнованиях по лыжным гонкам, призёр и победитель всевозможных ЧМ и ЧЕ по лыжным гонкам.
+                    </p>
+                    <span>Конец карьеры - 1992 год</span>
+                </div>
+                <div class="main__wrapper-item">
+                    <img src="../Img/15.JPG" />
+                    <h3>Габов Николай Николаевич</h3>
+                    <p>
+                        Участник Великой Отечественной войны, разведчик штабной батареи 1-го гвардейского артиллерийского полка 4-й гвардейской воздушно-десантной дивизии 40-й армии 2-го Украинского фронта, гвардии рядовой.
+                    </p>
+                    <span>Награды: Герой Советского Союза, Орден Ленина, Орден Красной Звезды</span>
+                </div>
             </div>
         </div>
-        <div class="footer">
-            <div class="footer__copyright">
-                © 2020, сайт-визитка города Сыктывкар
-            </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__copyright">
+            <span>© 2020, сайт-визитка города Сыктывкар</span>
         </div>
-    </div>
+    </footer>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 
 </html>

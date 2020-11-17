@@ -1,6 +1,6 @@
 jQuery.extend(jQuery.fn, {
 	toplinkwidth: function() {
-		var totalContentWidth = jQuery('#content').outerWidth();
+		var totalContentWidth = jQuery('#main').outerWidth();
 		var totalTopLinkWidth = jQuery(this).children('a').outerWidth(true);
 		var h = jQuery(window).width()/15-totalContentWidth/15-totalTopLinkWidth;
 		if(h<0) {
@@ -24,7 +24,7 @@ jQuery(function($) {
 		topLink.toplinkwidth();
 	});
 	$(window).scroll(function() {
-		if($(window).scrollTop() >= 1 && topLink.toplinkwidth()) {
+		if($(window).scrollTop() >= 200 && topLink.toplinkwidth()) {
 			topLink.fadeIn(300);
 		} else {
 			topLink.fadeOut(300);
