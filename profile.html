@@ -1,72 +1,53 @@
-<?php
-header('Content-Type: text/html; charset=utf8');
-session_start();
-if(isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-}
-else {
-session_destroy();
-header("Location: authorization.php");
-}
-require_once('connection.php');
-?>
+<!DOCTYPE html>
 
-<html>
+<html lang="ru" dir="ltr">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сыктывкар</title>
-    <link rel="shortcut icon" href="/Img/favicon.png" type="image/x-icon" sizes="any">
-    <link rel="stylesheet" href="Style/reset.css">
-    <link rel="stylesheet" href="Style/style.css">
-    <link rel="stylesheet" href="Style/fonts.css">
-    <link rel="stylesheet" href="Style/header__nav.css">
+    <link rel="shortcut icon" href="/Img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/header__nav.css">
+    <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="container">
         <header class="header">
-            <div class="header__section">
+            <div class="header__section-left">
                 <div class="header__item header__logo">
-                    <a class="index" href="index.php">Сыктывкар</a>
+                    <a href="index.html">Сыктывкар</a>
                 </div>
             </div>
-            <div class="header__section">
+            <div class="header__section-right">
                 <nav role="navigation">
                   <ul>
-                    <li><a href="about.php">Подробнее о городе</a>
+                    <li><a href="about.html">Подробнее о городе</a>
                       <ul class="dropdown" aria-label="submenu">
-                        <li><a href="attractions.php">Достопримечательности</a></li>
-                        <li><a href="stars.php">Известные личности</a></li>
-                        <li><a href="map.php">Карта</a></li>
-                        <li><a href="about.php">О городе</a></li>
+                        <li><a href="attractions.html">Достопримечательности</a></li>
+                        <li><a href="stars.html">Известные личности</a></li>
+                        <li><a href="map.html">Карта</a></li>
+                        <li><a href="about.html">О городе</a></li>
                       </ul>
                     </li>
-                    <?php if ($_SESSION['username']) {
-                        echo '<li><a href="profile.php">Профиль</a>
-                                <ul class="dropdown" aria-label="submenu">
-                                    <li><a href="settings.php">Настройки</a></li>
-                                </ul>
-                                </li>';
-                        echo '<li><a href="logout.php">Выйти</a></li>';
-                    } else {
-                        echo '<li><a href="authorization.php">Войти</a></li>';
-                    } ?>
+                    <li><a href="authorization.html">Войти</a></li>
                   </ul>
                 </nav>
             </div>
         </header>
 
-        <div class="content">
-            <h1>Добро пожаловтаь, <?php echo $_SESSION['username'] ?>!</h1>
-        </div>
-
-        <div class="footer">
-            <div class="footer__copyright">
-                © 2020, сайт-визитка города Сыктывкар
+        <main class="main">
+            <div class="wrapper">
+                <h2 class="main__user-hello">Добро пожаловать, USERNAME!</h2>
             </div>
-        </div>
-    </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__copyright">
+                <span>© 2020, сайт-визитка города Сыктывкар</span> 
+            </div>
+        </footer>
 </body>
 
 </html>

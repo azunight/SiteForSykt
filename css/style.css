@@ -26,9 +26,10 @@ body {
   width: auto;
   height: auto;
   background: #f424f2;
-  z-index: 999;
+  z-index: 1;
   padding: 10px;
   margin: 0 auto;
+  position: relative;
 }
 .header .header__section-left, .header .header__section-right {
   display: flex;
@@ -94,6 +95,11 @@ body {
   margin: 5vh 2vh 2vh;
   min-width: 300px;
 }
+.main__form textarea {
+  height: 28vh;
+  font-family: "Arial";
+  padding-top: 10px;
+}
 
 .main__form-title {
   padding-bottom: 20px;
@@ -106,7 +112,7 @@ body {
   height: 30px;
   border: 2px solid #DDD;
   outline: none;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   min-width: 170px;
   padding-left: 10px;
 }
@@ -123,7 +129,7 @@ body {
   font-family: "MuseoSansBold";
   border: 2px solid #DDD;
   outline: none;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   min-width: 170px;
 }
 .main__form-button:hover {
@@ -142,6 +148,11 @@ body {
 }
 .main__form-forgot:hover, .main__form-forgot:active, .main__form-forgot:focus {
   color: #6da4eb;
+}
+
+.main__user-hello {
+  font-size: 1.6em;
+  margin: 30px;
 }
 
 .main__wrapper-items {
@@ -189,13 +200,17 @@ iframe {
   margin: 35px 5px 0px;
 }
 
+.yandex__pay {
+  border: 0;
+}
+
 .main__wrapper-about {
   margin: 35px 5px 0px;
   font-size: 1.3em;
   line-height: 1.5em;
   word-spacing: 0.1em;
-  border-left: 2.5px solid #000;
-  padding-left: 15px;
+  border-left: 3px solid #000;
+  padding: 0px 15px 5px;
   text-align: left;
 }
 .main__wrapper-about span {
@@ -208,7 +223,7 @@ iframe {
   cursor: pointer;
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 0;
   padding: 0;
   background: #EFD9ED;
 }
@@ -235,11 +250,14 @@ iframe {
   height: auto;
   margin: auto;
   padding: 100px 5px 30px;
+  -webkit-user-select: none;
+          user-select: none;
 }
 .footer span {
   padding: 7px 20px;
   background-color: #DDD;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .index:hover {
@@ -256,11 +274,6 @@ iframe {
   font-size: 14px;
   padding-bottom: 20px;
   color: green;
-}
-
-.feedback__textarea {
-  height: 28vh;
-  font-size: 17px;
 }
 
 .yandex__pay {
